@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hang the man! Kind of absurd now when I think about it</title>
+    <script src="hangman.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <input type="text" id="userInput" placeholder="Guess word">
+    <div><input type="text" id="lives" placeholder="You have 6 Lives" readonly></div>
+
+    <button type="submit" onclick="checkInput()">Submit</button>
+    <div id="wrong"></div>
+
+    <div class="custom-position">
+        <input type="text" id="letter1" placeholder="" readonly>
+        <input type="text" id="letter2" placeholder="" readonly>
+        <input type="text" id="letter3" placeholder="" readonly>
+        <input type="text" id="letter4" placeholder="" readonly>
+    </div>
+</body>
+
+</html>

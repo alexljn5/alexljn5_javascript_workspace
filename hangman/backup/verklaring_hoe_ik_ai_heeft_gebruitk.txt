@@ -1,0 +1,39 @@
+let lives = 7;
+let correctLetters = ["m", "e", "a", "t"];
+let wrongLetters = [];
+correctWord = "meat";
+
+function checkInput() {
+    const inputField = document.getElementById('userInput');
+    const userInput = inputField.value;
+    document.getElementById("lives").value = lives;
+
+
+
+    if (userInput === correctWord) {
+        document.body.appendChild(document.createElement('img')).src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbzjDAhEpnPg-iWYvS-IhTx7mbalR6T3RHjQ&s';
+    } else {
+        for (let letter of word) {
+            if (userInput === correctLetters.includes(letter)) {
+                console.log("poop");
+            } else {
+                lives--;
+            }
+        }
+        document.getElementById("lives").value = lives;
+
+
+    }
+}
+
+Dit was mijn originele code for galgje, mijn probleem dat ik terecht kwam was dat de levens niet naar beneden ging,
+zo ik vroeg chatgpt wat het foutje was en kreeg nieuwe code, dit was de verklaring erover wat ik moest veranderen, in engels:
+Changes made:
+
+    Letter comparison: Instead of correctLetters.includes(letter), I made a direct comparison between userInput and letter from correctWord. If a match is found, letterFound is set to true.
+
+    Decreasing lives: Now lives only decrease if letterFound is still false, meaning the user's input is incorrect.
+
+    Looping through correctWord: I fixed the loop to iterate over correctWord instead of the undefined word variable.
+
+This should properly decrease the number of lives when an incorrect letter is guessed.
