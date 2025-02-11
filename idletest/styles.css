@@ -1,13 +1,24 @@
 .buttonPosition {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 10px;
+    align-items: center
 }
 
 .container {
-    display: grid;
+    display: flex;
     grid-template-rows: 1;
     grid-template-columns: 1;
-    align-items: center;
     justify-content: center;
+    margin-bottom: 10px;
+}
+
+.containerButtons {
+    display: grid;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.sizeOfInputs {
+    width: 25px;
+    height: 20px
 }

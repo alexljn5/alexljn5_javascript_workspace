@@ -8,19 +8,33 @@
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="main.js"></script>
     <script type="module" src="autoclicker.js"></script>
+    <script type="module" src="5secondreaper.js"></script>
     <link rel="shortcut icon" href="#">
 </head>
 
 <body>
 
     <div class="container">
-        <input type="text" id="counter">
-        <div class="buttonPosition">
-            <button type="button" id="mainclick">Click me!</button>
-            <button type="button" id="autoclicker">AutoClicker</button>
-        </div>
+        <form>
+            <input type="text" id="counter" class="sizeOfInputs">
+        </form>
+    </div>
     </div>
 
+    <div class="containerButtons">
+        <div class="buttonPosition">
+            <button type="button" id="mainClick">Click me!</button>
+            <button type="button" id="autoClicker">AutoClicker</button>
+            <button type="button" id="fiveSecondReaper">The Five Second Reaper</button>
+        </div>
+        <div>
+            <form>
+                <input type="text" id="countOfAutoClickers" class="sizeOfInputs">
+                <input type="text" id="countOfFiveSecondReapers" class="sizeOfInputs">
+            </form>
+        </div>
+
+    </div>
 </body>
 
 </html>
