@@ -1,0 +1,30 @@
+body {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+
+.positionhihi {
+    text-align: center;
+    padding: 20px;
+    background-color: #474545;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.positionhihi2 {
+    display: grid;
+    align-items: center;
+
+}
+
+.positionbuttons {
+    display: flex;
+    gap: 60px;
+}
