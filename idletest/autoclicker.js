@@ -25,14 +25,12 @@ function autoClicker() {
 }
 
 function upgradeAutoClicker() {
-    if (costOfUpgradingAutoClickers == state.clicks) {
+    if (costOfUpgradingAutoClickers <= state.clicks) {
         upgradeAble == true;
         document.getElementById("countOfAutoClickersUpgrades");
         numberOfUpgradeAutoClickers++;
         document.getElementById("countOfAutoClickersUpgrades").value = numberOfUpgradeAutoClickers;
-        costOfUpgradingAutoClickers += Math.round(Math.log(costOfUpgradingAutoClickers + 1));
-
-        console.log("kaas");
+        costOfUpgradingAutoClickers += Math.log(costOfUpgradingAutoClickers + 1);
         console.log(costOfUpgradingAutoClickers);
     }
 }
