@@ -1,0 +1,12 @@
+.positionzeshit {
+    display: flex;
+    margin-left: 40%;
+    margin-top: 10%;
+}
+
+.responsive-image {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+}
