@@ -18,7 +18,17 @@
     margin-bottom: 10px;
 }
 
+.inputFuck {
+    display: flex;
+    justify-content: center;
+}
+
 .sizeOfInputs {
     width: 25px;
-    height: 20px
+    height: 20px;
+}
+
+.positionCenter {
+    display: flex;
+    justify-content: center;
 }
