@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             newItem.textContent = count;
 
-            // Append the new item to the container
             container.appendChild(newItem);
         }
 

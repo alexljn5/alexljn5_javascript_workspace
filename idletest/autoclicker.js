@@ -7,6 +7,7 @@ let costOfUpgradingAutoClickers = 5;
 let upgradeAble = false;
 document.getElementById("autoClicker").addEventListener("click", autoClicker, false);
 document.getElementById("upgradeForAutoClicker").addEventListener("click", upgradeAutoClicker, false);
+document.getElementById("costOfAutoClicker").addEventListener("click", costOfAutoClicker, false);
 
 
 function autoClicker() {
@@ -26,12 +27,19 @@ function autoClicker() {
 
 function upgradeAutoClicker() {
     if (costOfUpgradingAutoClickers <= state.clicks) {
-        upgradeAble == true;
+        upgradeAble = true;
         document.getElementById("countOfAutoClickersUpgrades");
         numberOfUpgradeAutoClickers++;
         document.getElementById("countOfAutoClickersUpgrades").value = numberOfUpgradeAutoClickers;
         costOfUpgradingAutoClickers += Math.log(costOfUpgradingAutoClickers + 1);
-        console.log(costOfUpgradingAutoClickers);
+
     }
 }
+
+function costOfAutoClicker() {
+    document.getElementById("costOfAutoClicker");
+    document.getElementById("costOfAutoClicker").value = costOfUpgradingAutoClickers;
+}
+
+
 
