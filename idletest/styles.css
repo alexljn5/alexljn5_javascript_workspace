@@ -1,7 +1,31 @@
 .buttonPosition {
     display: flex;
-    margin-bottom: 10px;
-    align-items: center
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 10%;
+    margin-right: 5%;
+}
+
+.buttonPosition button {
+    margin-bottom: 128px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    /* Centers the button content */
+}
+
+.buttonPosition button:last-child {
+    margin-bottom: 0;
+}
+
+.buttonPosition button img {
+    margin-right: 8px;
+    /* Space between the icon and text */
+    width: 24px;
+    /* Adjust the size of the icon */
+    height: 24px;
+    /* Adjust the size of the icon */
 }
 
 .container {
@@ -14,8 +38,9 @@
 
 .containerButtons {
     display: grid;
-    justify-content: center;
+    justify-content: right;
     margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 .inputFuck {
@@ -31,4 +56,16 @@
 .positionCenter {
     display: flex;
     justify-content: center;
+}
+
+.centerElements {
+    display: flex;
+    justify-content: center;
+}
+
+.positionIcons {
+    display: flex;
+    justify-content: right;
+    margin-right: 15%;
+    margin-top: 10%;
 }
