@@ -28,7 +28,7 @@ function autoClicker() {
         document.getElementById("countOfAutoClickers").value = numberOfAutoClickers;
         costOfAutoClicker = costOfAutoClicker + costOfAutoClicker * 0.5;
     } else {
-
+        upgradeAble = false;
     }
 
 }
