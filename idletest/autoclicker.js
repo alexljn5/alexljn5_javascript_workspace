@@ -22,11 +22,13 @@ function autoClicker() {
             console.log(state.clicks);
         }, 10000); //For future me, values need to be in milliseconds
 
-        document.getElementById("counter").value = state.clicks;
+        document.getElementById("counter").value = Math.round(state.clicks);
 
         numberOfAutoClickers++;
         document.getElementById("countOfAutoClickers").value = numberOfAutoClickers;
         costOfAutoClicker = costOfAutoClicker + costOfAutoClicker * 0.5;
+
+        document.getElementById("costOfAutoClicker").value = Math.round(costOfAutoClicker);
     } else {
         upgradeAble = false;
     }
@@ -34,14 +36,19 @@ function autoClicker() {
 }
 
 function upgradeAutoClicker() {
-    if (costOfUpgradingAutoClickers <= state.clicks) {
+    if (costOfUpgradingAutoClickers <= Math.round(state.clicks)) {
         upgradeAble = true;
         numberOfUpgradeAutoClickers++;
         document.getElementById("countOfAutoClickersUpgrades").value = numberOfUpgradeAutoClickers;
         costOfUpgradingAutoClickers += Math.log(costOfUpgradingAutoClickers + 1);
         updateCostDisplay();
-        state.clicks = state.clicks * 0.01;
+        document.getElementById("counter").value = Math.round(state.clicks);
+
+
+
+        state.clicks = state.clicks - costOfUpgradingAutoClickers; //Simply updates display, don't change
     }
+
 }
 
 updateCostDisplay();

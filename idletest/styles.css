@@ -66,3 +66,14 @@
     margin-right: 15%;
     margin-top: 10%;
 }
+
+body {
+    background-color: black;
+}
+
+.putElementsUnder {
+    display: flex;
+    margin-bottom: auto;
+    justify-content: center;
+    padding-right: 2.5%;
+}
