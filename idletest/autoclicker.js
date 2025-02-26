@@ -1,6 +1,5 @@
 import { state } from './main.js';
 
-//SOMEHOW YOU CAN NOW GO INTO NEGATIVES UPGRADING WHY HWYWH WYHA YWy
 
 let numberOfAutoClickers = 0;
 let numberOfUpgradeAutoClickers = 0;
@@ -12,13 +11,15 @@ let clickMultiplier = 1;
 document.getElementById("autoClicker").addEventListener("click", autoClicker, false);
 document.getElementById("upgradeForAutoClicker").addEventListener("click", upgradeAutoClicker, false);
 
-function updateCostDisplay() {
-    document.getElementById("costOfAutoClicker").value = costOfUpgradingAutoClickers;
-}
+
+
+document.getElementById("costOfAutoClicker").value = costOfAutoClicker;
+document.getElementById("costOfAutoClickerUpgrades").value = costOfUpgradingAutoClickers;
+document.getElementById("counter").value = Math.round(state.clicks);
 
 function autoClicker() {
-    if (costOfAutoClicker <= Math.round(state.clicks)) {
-        state.clicks = state.clicks - costOfAutoClicker;
+    if (costOfAutoClicker <= state.clicks) {
+        state.clicks -= costOfAutoClicker;
         setInterval(() => {
             state.clicks += clickMultiplier;
             document.getElementById("counter").value = state.clicks;
@@ -35,27 +36,21 @@ function autoClicker() {
     } else {
         upgradeAble = false;
     }
-
 }
+
 //Every time you upgrade +1 clicks, maybe an upgrade to double this? But works! Dayum!
 function upgradeAutoClicker() {
-    if (costOfUpgradingAutoClickers <= Math.round(state.clicks)) {
+    if (costOfUpgradingAutoClickers <= state.clicks) {
         upgradeAble = true;
         numberOfUpgradeAutoClickers++;
         clickMultiplier = numberOfUpgradeAutoClickers + 1;
         document.getElementById("countOfAutoClickersUpgrades").value = numberOfUpgradeAutoClickers;
         state.clicks = state.clicks - costOfUpgradingAutoClickers; // display
         costOfUpgradingAutoClickers += Math.log(costOfUpgradingAutoClickers + 1);
-        updateCostDisplay();
-
+        document.getElementById("costOfAutoClickerUpgrades").value = costOfUpgradingAutoClickers;
 
         document.getElementById("counter").value = Math.round(state.clicks);
     } else {
         upgradeAble = false;
     }
-
 }
-
-
-
-updateCostDisplay();
