@@ -9,6 +9,7 @@ document.getElementById("countOfFiveSecondReapers").value = numberOfFiveSecondRe
 document.getElementById("costOfFiveSecondReapers").value = costOfFiveSecondreaper;
 
 function fiveSecondReaper() {
+    //Simple timer to give you clicks based in MS. Can change this around to have fun.
     if (costOfFiveSecondreaper <= Math.round(state.clicks)) {
         state.clicks -= costOfFiveSecondreaper;
 
@@ -17,11 +18,11 @@ function fiveSecondReaper() {
             document.getElementById("counter").value = Math.round(state.clicks);
         }, 5000);
 
-        document.getElementById("counter").value = Math.round(state.clicks);
 
+        //Code block to simply update input, maybe not forget Math.rounds to avoid decimal points?
+        document.getElementById("counter").value = Math.round(state.clicks);
         numberOfFiveSecondReaper++;
         document.getElementById("countOfFiveSecondReapers").value = numberOfFiveSecondReaper;
-
         costOfFiveSecondreaper += costOfFiveSecondreaper * 0.5;
         document.getElementById("costOfFiveSecondReapers").value = Math.round(costOfFiveSecondreaper);
     }

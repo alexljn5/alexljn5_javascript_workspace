@@ -1,5 +1,6 @@
 import { state } from './main.js';
 
+//I honestly barely knows how this works.
 let inventory = [];
 
 let giftFromTheGodsItem = "giftfromthegods";
