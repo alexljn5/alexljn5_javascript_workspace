@@ -33,6 +33,8 @@ function doubleTrouble() {
     }
 }
 
+
+
 /* Eventual code to loop through array to find existing strings so you cant exploit the game... i think
 
 
