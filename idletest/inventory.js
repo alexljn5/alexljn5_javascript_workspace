@@ -3,15 +3,18 @@ import { state } from './main.js';
 //I honestly barely knows how this works.
 let inventory = [];
 
+/*
 let giftFromTheGodsItem = "giftfromthegods";
 let doubleTroubleItem = "doubletrouble";
+*/
 
+//Somehow pushing the Array instead of a given string value makes it so it works when adding multiple buttons to upgrade stuff, wat.
 document.getElementById("giftfromthegods").addEventListener("click", giftFromTheGods, false);
 document.getElementById("doubletrouble").addEventListener("click", doubleTrouble, false);
 
 function giftFromTheGods() {
-    if (state.clicks >= 5 && !inventory.includes(giftFromTheGodsItem)) {
-        inventory.push(giftFromTheGodsItem);
+    if (state.clicks >= 5 && !inventory.includes(giftFromTheGods)) {
+        inventory.push(giftFromTheGods);
         state.clicks = state.clicks + 500;
         document.getElementById("giftfromthegods").disabled = true;
         document.getElementById("counter").value = Math.round(state.clicks); //So counter displays accurate
