@@ -19,6 +19,7 @@ document.getElementById("counter").value = Math.round(state.clicks);
 
 function autoClicker() {
     if (costOfAutoClicker <= state.clicks) {
+        upgradeAble = true;
         state.clicks -= costOfAutoClicker;
         //Simple timer to give you clicks based in MS. Can change this around to have fun.
         setInterval(() => {
