@@ -1,5 +1,5 @@
 import { state } from './main.js';
-import { multiplierState } from './inventory.js';
+
 
 let numberOfAutoClickers = 0;
 let numberOfUpgradeAutoClickers = 0;
@@ -23,7 +23,7 @@ function autoClicker() {
         state.clicks -= costOfAutoClicker;
         //Simple timer to give you clicks based in MS. Can change this around to have fun.
         setInterval(() => {
-            state.clicks += clickMultiplier * multiplierState.clickMultiplier;
+            state.clicks += clickMultiplier;
             document.getElementById("counter").value = state.clicks;
             console.log(state.clicks);
         }, 10000); //For future me, values need to be in milliseconds
