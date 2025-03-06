@@ -1,92 +1,45 @@
-/* === Cream’s Cozy General Styles === */
-body {
-    background-color: #fff5e6;
-    /* A warm, creamy off-white */
-    color: #5d3f6a;
-    /* Soft purple for text, like my dress! */
-    font-family: 'Comic Sans MS', 'Arial', sans-serif;
-    /* Playful and friendly */
-    margin: 0;
-    padding: 0;
-}
-
-/* === Button Positioning - Cute and Tidy! === */
 .buttonPosition {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     margin-top: 10%;
     margin-right: 5%;
-    gap: 12px;
-    /* A little space between buttons, like flower petals */
 }
 
 .buttonPosition button {
+    margin-bottom: 16px;
     width: 100%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    padding: 12px 18px;
-    background-color: #ffd1dc;
-    /* Soft pink, like a Chao fruit */
-    color: #5d3f6a;
-    /* Purple text to match */
-    border: 2px solid #ff99cc;
-    /* Brighter pink border */
-    border-radius: 10px;
-    /* Nice, round edges */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    /* Smooth as flying with Cheese! */
-    font-size: 16px;
-}
-
-.buttonPosition button:hover {
-    background-color: #ff99cc;
-    /* Brighter pink on hover */
-    color: #fff5e6;
-    /* Creamy text */
-    transform: scale(1.05);
-    /* A little bounce, so cute! */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Gentle shadow */
+    /* Centers the button content */
 }
 
 .buttonPosition button:last-child {
     margin-bottom: 0;
-    /* No extra space at the bottom */
 }
 
 .buttonPosition button img {
     margin-right: 8px;
     width: 24px;
     height: 24px;
-    filter: brightness(1.1);
-    /* A tiny sparkle for icons! */
 }
 
-/* === Container - Neat and Centered === */
 .container {
     display: flex;
+    grid-template-rows: 1;
+    grid-template-columns: 1;
     justify-content: center;
     margin-bottom: 10px;
-    padding: 15px;
-    background-color: #f9e4ff;
-    /* Light lavender for a soft touch */
-    border-radius: 12px;
 }
 
-/* === Container Buttons - Organized Like a Garden === */
 .containerButtons {
     display: grid;
     justify-content: right;
     margin-bottom: 10px;
     margin-left: 10px;
-    gap: 8px;
-    /* Little gaps for breathing room */
 }
 
-/* === Inputs - Small and Sweet === */
 .inputFuck {
     display: flex;
     justify-content: center;
@@ -95,33 +48,23 @@ body {
 .sizeOfInputs {
     width: 25px;
     height: 20px;
-    background-color: #fff5e6;
-    /* Creamy background */
-    border: 1px solid #ff99cc;
-    /* Pink outline */
-    border-radius: 5px;
-    text-align: center;
-    color: #5d3f6a;
 }
 
 .sizeOfInputs2 {
     width: 119px;
     height: 20px;
-    background-color: #fff5e6;
-    border: 1px solid #ff99cc;
-    border-radius: 5px;
-    text-align: center;
-    color: #5d3f6a;
 }
 
-/* === Centering Helpers - Everything in Place! === */
-.positionCenter,
+.positionCenter {
+    display: flex;
+    justify-content: center;
+}
+
 .centerElements {
     display: flex;
     justify-content: center;
 }
 
-/* === Icons - Positioned with Love === */
 .positionIcons {
     display: flex;
     justify-content: right;
@@ -129,21 +72,14 @@ body {
     margin-top: 10%;
 }
 
-/* === Stacking Elements - Like a Pile of Chao Toys === */
-.putElementsUnder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+body {
+    background-color: black;
 }
 
-/* === Upgrade Inputs - Ready for Fun === */
-.inputUpgrades {
-    padding: 5px;
-    background-color: #ffd1dc;
-    /* Matching the buttons */
-    border: 1px solid #ff99cc;
-    border-radius: 8px;
-    color: #5d3f6a;
+.putElementsUnder {
+    display: flex;
+    margin-bottom: auto;
+    justify-content: center;
 }
+
+.inputUpgrades {}

@@ -1,4 +1,5 @@
 import { state } from './main.js';
+if (typeof state.clicks === "undefined") state.clicks = 0;
 
 export let multiplierState = {
     clickMultiplier: 2
@@ -20,10 +21,12 @@ document.getElementById("doubletheclicks").addEventListener("click", doubleClick
 
 document.getElementById("testingButton").addEventListener("click", loopArray, false);
 
+loopArray();
+
 function giftFromTheGods() {
     let costOfGiftFromTheGods = 5;
 
-    if (costOfGiftFromTheGods >= state.clicks && !inventory.includes(giftFromTheGods)) {
+    if (costOfGiftFromTheGods <= state.clicks && !inventory.includes(giftFromTheGods)) {
         inventory.push(giftFromTheGods);
         state.clicks = state.clicks + 500;
         document.getElementById("giftfromthegods").disabled = true;
@@ -32,9 +35,6 @@ function giftFromTheGods() {
     } else {
         alert("not enough clicks");
     }
-
-    document.getElementById("counter").value = Math.round(state.clicks);
-    console.log(inventory);
 }
 
 function doubleTrouble() {
@@ -60,19 +60,36 @@ function doubleClickProduction() { //Code that will eventually give you a x2 mul
 
 }
 
-function loopArray() {
-    for (let i = 0; i < inventory.length; i++) {
-        console.log(inventory);
-        if (inventory[i] === doubleTrouble) { //Works, checks if the function is already pushed to prevent repeat upgrades
-            console.log("fart");
 
-        } //Maybe transform this into a while statement to continuously loop through the array to find values?
-    }
+
+function loopArray() {
+    setInterval(() => {
+        for (let i = 0; i < inventory.length; i++) {
+            console.log(inventory);
+            //Works, checks if the function is already pushed to prevent repeat upgrades
+        }
+    }, 500);
+}
+
+//Same loop could be utilized for for example: slow growth of clicks, Grok assisted me with this, great idea.
+
+/*
+
+function loopArray() {
+    setInterval(() => {
+        for (let i = 0; i < inventory.length; i++) {
+            if (inventory[i] === giftFromTheGods) {
+                state.clicks += 10; // Passive click income
+            } else if (inventory[i] === doubleClickProduction) {
+                state.clicks += multiplierState.clickMultiplier; // Uses the multiplier
+            } // doubleTrouble could stay a one-time boost, so no loop effect
+            document.getElementById("counter").value = Math.round(state.clicks);
+        }
+        console.log("Inventory:", inventory);
+    }, 1000); // 1 second is a good pace
 }
 
 
-
-
-
+*/
 
 

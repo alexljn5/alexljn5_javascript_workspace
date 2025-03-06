@@ -1,5 +1,6 @@
 import { state } from './main.js';
 import { multiplierState } from './inventory.js';
+if (typeof state.clicks === "undefined") state.clicks = 0;
 
 let numberOfAutoClickers = 0;
 let numberOfUpgradeAutoClickers = 0;
