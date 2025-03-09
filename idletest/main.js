@@ -2,7 +2,12 @@ export let state = {
     clicks: 0
 };
 
-let toggleTheMusic = new Audio("audio/music/ramranch.mp3");
+//Eventual function so everything is cleaned up, solely for displaying the new value of the counter and maybe more.
+export function displayFunction() {
+    document.getElementById("counter").value = Math.round(state.clicks);
+}
+
+let toggleTheMusic = new Audio("audio/music/ramranch.wav");
 
 
 document.getElementById("mainClick").addEventListener("click", onClick, false);
@@ -29,6 +34,6 @@ function muteMusic() {
 function volumeSlider() {
     let theVolumeSlider = document.getElementById("volumeSlider").value;
     toggleTheMusic.volume = theVolumeSlider / 100;
-    console.log("Volume set to:", toggleTheMusic.volume);
 }
+
 

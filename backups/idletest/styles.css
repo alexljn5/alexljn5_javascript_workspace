@@ -50,6 +50,11 @@
     height: 20px;
 }
 
+.sizeOfInputs2 {
+    width: 119px;
+    height: 20px;
+}
+
 .positionCenter {
     display: flex;
     justify-content: center;
@@ -76,3 +81,5 @@ body {
     margin-bottom: auto;
     justify-content: center;
 }
+
+.inputUpgrades {}

@@ -1,4 +1,6 @@
 import { state } from './main.js';
+import { multiplierState } from './inventory.js';
+if (typeof state.clicks === "undefined") state.clicks = 0;
 
 let numberOfAndreasLeftToe = 0;
 let costOfAndreasLeftToe = 100;
@@ -14,7 +16,7 @@ function andreasLeftToe() {
         state.clicks -= costOfAndreasLeftToe;
 
         setInterval(() => {
-            state.clicks = state.clicks + 5;
+            state.clicks = state.clicks + 5 * multiplierState.clickMultiplier;
             document.getElementById("counter").value = Math.round(state.clicks);
         }, 1000);
 

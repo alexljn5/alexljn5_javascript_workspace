@@ -1,4 +1,6 @@
 import { state } from './main.js';
+import { multiplierState } from './inventory.js';
+if (typeof state.clicks === "undefined") state.clicks = 0;
 
 let numberOfFiveSecondReaper = 0;
 let costOfFiveSecondreaper = 15;
@@ -14,7 +16,7 @@ function fiveSecondReaper() {
         state.clicks -= costOfFiveSecondreaper;
 
         setInterval(() => {
-            state.clicks++;
+            state.clicks++ * multiplierState.clickMultiplier;
             document.getElementById("counter").value = Math.round(state.clicks);
         }, 5000);
 

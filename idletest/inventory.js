@@ -5,6 +5,8 @@ export let multiplierState = {
     clickMultiplier: 2
 };
 
+import { displayFunction } from './main.js';
+
 
 //I honestly barely knows how this works.
 let inventory = [];
@@ -19,8 +21,6 @@ document.getElementById("giftfromthegods").addEventListener("click", giftFromThe
 document.getElementById("doubletrouble").addEventListener("click", doubleTrouble, false);
 document.getElementById("doubletheclicks").addEventListener("click", doubleClickProduction, false);
 
-document.getElementById("testingButton").addEventListener("click", loopArray, false);
-
 loopArray();
 
 function giftFromTheGods() {
@@ -30,8 +30,9 @@ function giftFromTheGods() {
         inventory.push(giftFromTheGods);
         state.clicks = state.clicks + 500;
         document.getElementById("giftfromthegods").disabled = true;
-        document.getElementById("counter").value = Math.round(state.clicks); //So counter displays accurate
 
+
+        displayFunction();
     } else {
         alert("not enough clicks");
     }
@@ -42,18 +43,20 @@ function doubleTrouble() {
         inventory.push(doubleTrouble);
         state.clicks = state.clicks * 2;
         document.getElementById("doubletrouble").disabled = true; //Just disables button
-        document.getElementById("counter").value = Math.round(state.clicks);
+
+        displayFunction();
     } else {
         alert("not enough clicks");
     }
 }
 
 function doubleClickProduction() { //Code that will eventually give you a x2 multiplier on certain towers
-    if (state.clicks >= 1 && !inventory.includes(doubleClickProduction)) {
+    if (state.clicks >= 4200 && !inventory.includes(doubleClickProduction)) {
         inventory.push(doubleClickProduction);
         multiplierState.clickMultiplier = 2;
         document.getElementById("doubletheclicks").disabled = true;
-        document.getElementById("counter").value = Math.round(state.clicks);
+
+        displayFunction();
     } else {
         alert("not enough clicks.");
     }

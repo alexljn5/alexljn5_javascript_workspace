@@ -1,4 +1,10 @@
 import { state } from './main.js';
+if (typeof state.clicks === "undefined") state.clicks = 0;
+
+export let multiplierState = {
+    clickMultiplier: 2
+};
+
 
 //I honestly barely knows how this works.
 let inventory = [];
@@ -11,21 +17,24 @@ let doubleTroubleItem = "doubletrouble";
 //Somehow pushing functions into the Array instead of a given string value makes it so it works when adding multiple buttons to upgrade stuff, wat.
 document.getElementById("giftfromthegods").addEventListener("click", giftFromTheGods, false);
 document.getElementById("doubletrouble").addEventListener("click", doubleTrouble, false);
+document.getElementById("doubletheclicks").addEventListener("click", doubleClickProduction, false);
 
 document.getElementById("testingButton").addEventListener("click", loopArray, false);
 
+loopArray();
+
 function giftFromTheGods() {
-    if (state.clicks >= 5 && !inventory.includes(giftFromTheGods)) {
+    let costOfGiftFromTheGods = 5;
+
+    if (costOfGiftFromTheGods <= state.clicks && !inventory.includes(giftFromTheGods)) {
         inventory.push(giftFromTheGods);
         state.clicks = state.clicks + 500;
         document.getElementById("giftfromthegods").disabled = true;
         document.getElementById("counter").value = Math.round(state.clicks); //So counter displays accurate
+
     } else {
         alert("not enough clicks");
     }
-
-    document.getElementById("counter").value = Math.round(state.clicks);
-    console.log(inventory);
 }
 
 function doubleTrouble() {
@@ -40,24 +49,47 @@ function doubleTrouble() {
 }
 
 function doubleClickProduction() { //Code that will eventually give you a x2 multiplier on certain towers
-    let towerMultipler = * 2;
+    if (state.clicks >= 4200 && !inventory.includes(doubleClickProduction)) {
+        inventory.push(doubleClickProduction);
+        multiplierState.clickMultiplier = 2;
+        document.getElementById("doubletheclicks").disabled = true;
+        document.getElementById("counter").value = Math.round(state.clicks);
+    } else {
+        alert("not enough clicks.");
+    }
+
 }
+
+
 
 function loopArray() {
-    for (let i = 0; i < inventory.length; i++) {
-        console.log(inventory);
-        if (inventory[i] === doubleTrouble) { //Works, checks if the function is already pushed to prevent repeat upgrades
+    setInterval(() => {
+        for (let i = 0; i < inventory.length; i++) {
+            console.log(inventory);
+            //Works, checks if the function is already pushed to prevent repeat upgrades
+        }
+    }, 500);
+}
 
+//Same loop could be utilized for for example: slow growth of clicks, Grok assisted me with this, great idea.
 
-            console.log("fart");
+/*
 
-        } //Maybe transform this into a while statement to continuously loop through the array to find values?
-    }
+function loopArray() {
+    setInterval(() => {
+        for (let i = 0; i < inventory.length; i++) {
+            if (inventory[i] === giftFromTheGods) {
+                state.clicks += 10; // Passive click income
+            } else if (inventory[i] === doubleClickProduction) {
+                state.clicks += multiplierState.clickMultiplier; // Uses the multiplier
+            } // doubleTrouble could stay a one-time boost, so no loop effect
+            document.getElementById("counter").value = Math.round(state.clicks);
+        }
+        console.log("Inventory:", inventory);
+    }, 1000); // 1 second is a good pace
 }
 
 
-
-
-
+*/
 
 
