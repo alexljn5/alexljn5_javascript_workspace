@@ -1,4 +1,5 @@
 import { state } from './main.js';
+import { investTimerState } from './npc.js';
 if (typeof state.clicks === "undefined") state.clicks = 0;
 
 export let multiplierState = {
@@ -20,6 +21,7 @@ let doubleTroubleItem = "doubletrouble";
 document.getElementById("giftfromthegods").addEventListener("click", giftFromTheGods, false);
 document.getElementById("doubletrouble").addEventListener("click", doubleTrouble, false);
 document.getElementById("doubletheclicks").addEventListener("click", doubleClickProduction, false);
+document.getElementById("halfTheInvestTimer").addEventListener("click", halfTheInvestTimer, false);
 
 loopArray();
 
@@ -60,9 +62,21 @@ function doubleClickProduction() { //Code that will eventually give you a x2 mul
     } else {
         alert("not enough clicks.");
     }
-
 }
 
+
+function halfTheInvestTimer() {
+    let costOfInvestHalfTimer = 10000;
+    if (state.clicks >= costOfInvestHalfTimer && !inventory.includes(halfTheInvestTimer)) {
+        inventory.push(halfTheInvestTimer);
+        investTimerState.investTimer = investTimerState.investTimer / 2;
+        state.clicks - costOfInvestHalfTimer;
+        displayFunction();
+        console.log(investTimerState.investTimer);
+    }
+
+    document.getElementById("costOfHalfTheInvestTimer").value = costOfInvestHalfTimer;
+}
 
 
 function loopArray() {
