@@ -75,8 +75,6 @@ function investClicks() {
         alert("Not enough clicks in the bank to invest!");
     }
 
-    console.log(investTimerState.investTimer
-
-    );
+    console.log(investTimerState.investTimer);
 }
 
