@@ -68,11 +68,15 @@ function investClicks() {
             storedClicks = storedClicks * 1.05;
             theBank.set("storedClicks", storedClicks);
             displayFunction();
-        }, investTimerState); //1 hour, I have an idea. This will be an exported functions for upgrades.
+        }, investTimerState.investTimer
+
+        ); //1 hour, I have an idea. This will be an exported functions for upgrades.
     } else {
         alert("Not enough clicks in the bank to invest!");
     }
 
-    console.log(investTimerState);
+    console.log(investTimerState.investTimer
+
+    );
 }
 
