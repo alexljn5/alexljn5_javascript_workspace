@@ -7,7 +7,7 @@ export let investTimerState = {
 
 
 document.getElementById("theBankKeeper").addEventListener("click", theBankKeeper, false);
-document.getElementById("input").addEventListener("click", input, false)
+document.getElementById("input").addEventListener("click", input, false);
 document.getElementById("output").addEventListener("click", output, false);
 document.getElementById("invest").addEventListener("click", investClicks, false);
 
@@ -39,7 +39,7 @@ function input() {
     }
 }
 
-//Simple  gives you the stored clicks.
+//Simple, gives you the stored clicks.
 function output() {
     if (!theBank.has("storedClicks")) {
         theBank.set("storedClicks", 0);
@@ -72,7 +72,7 @@ function investClicks() {
             displayFunction();
         }, investTimerState.investTimer
 
-        ); //1 hour, I have an idea. This will be an exported functions for upgrades.
+        ); //1 hour, I have an idea. This will be an exported functions for upgrades. (idea worked)
     } else {
         alert("Not enough clicks in the bank to invest!");
     }

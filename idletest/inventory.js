@@ -11,6 +11,8 @@ import { displayFunction } from './main.js';
 
 //I honestly barely knows how this works.
 let inventory = [];
+let costOfInvestHalfTimer = 10000;
+let trackUpgradesHalfTimer = 0;
 
 /*
 let giftFromTheGodsItem = "giftfromthegods";
@@ -31,7 +33,7 @@ function giftFromTheGods() {
     if (costOfGiftFromTheGods <= state.clicks && !inventory.includes(giftFromTheGods)) {
         inventory.push(giftFromTheGods);
         //state.clicks = state.clicks + 500; pure for debugging, will just give myself like 1million clicks lol
-        state.clicks = state.clicks + 1000000;
+        state.clicks = state.clicks + 100000000;
         document.getElementById("giftfromthegods").disabled = true;
 
 
@@ -65,28 +67,31 @@ function doubleClickProduction() { //Code that will eventually give you a x2 mul
     }
 }
 
-
+//WORKS
 function halfTheInvestTimer() {
-    let costOfInvestHalfTimer = 10000;
+    const maximumUpgradesOfHalfTimer = 5;
     if (state.clicks >= costOfInvestHalfTimer && !inventory.includes(halfTheInvestTimer)) {
-        inventory.push(halfTheInvestTimer);
-        investTimerState.investTimer = investTimerState.investTimer / 2;
-        state.clicks - costOfInvestHalfTimer;
-        costOfInvestHalfTimer = Math.log(state.clicks * 1.1);
-        document.getElementById("costOfHalfTheInvestTimer").value = costOfInvestHalfTimer;
-
-        displayFunction();
+        if (trackUpgradesHalfTimer >= maximumUpgradesOfHalfTimer) {
+            inventory.push(halfTheInvestTimer);
+            document.getElementById("halfTheInvestTimer").disabled = true;
+        } else {
+            trackUpgradesHalfTimer++
+            investTimerState.investTimer = investTimerState.investTimer / 2;
+            state.clicks = state.clicks - costOfInvestHalfTimer;
+            displayFunction();
+            //Gives the initial cost and updates the value correctly with initial cost and then a log unit.
+            costOfInvestHalfTimer = Math.round(costOfInvestHalfTimer + (costOfInvestHalfTimer + Math.log(state.clicks * 100)));
+            document.getElementById("costOfHalfTheInvestTimer").value = costOfInvestHalfTimer;
+        }
+        console.log(costOfInvestHalfTimer);
     }
-
-    document.getElementById("costOfHalfTheInvestTimer").value = costOfInvestHalfTimer;
 }
 
-
+//Works, checks if the function is already pushed to prevent repeat upgrades
 function loopArray() {
     setInterval(() => {
         for (let i = 0; i < inventory.length; i++) {
             console.log(inventory);
-            //Works, checks if the function is already pushed to prevent repeat upgrades
         }
     }, 500);
 }
