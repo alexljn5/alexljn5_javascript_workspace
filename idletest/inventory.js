@@ -1,5 +1,5 @@
 import { state } from './main.js';
-import { investTimerState } from './npc.js';
+import { investTimerState } from './bank.js';
 if (typeof state.clicks === "undefined") state.clicks = 0;
 
 export let multiplierState = {
