@@ -30,7 +30,8 @@ function giftFromTheGods() {
 
     if (costOfGiftFromTheGods <= state.clicks && !inventory.includes(giftFromTheGods)) {
         inventory.push(giftFromTheGods);
-        state.clicks = state.clicks + 500;
+        //state.clicks = state.clicks + 500; pure for debugging, will just give myself like 1million clicks lol
+        state.clicks = state.clicks + 1000000;
         document.getElementById("giftfromthegods").disabled = true;
 
 
@@ -71,8 +72,10 @@ function halfTheInvestTimer() {
         inventory.push(halfTheInvestTimer);
         investTimerState.investTimer = investTimerState.investTimer / 2;
         state.clicks - costOfInvestHalfTimer;
+        costOfInvestHalfTimer = Math.log(state.clicks * 1.1);
+        document.getElementById("costOfHalfTheInvestTimer").value = costOfInvestHalfTimer;
+
         displayFunction();
-        console.log(investTimerState.investTimer);
     }
 
     document.getElementById("costOfHalfTheInvestTimer").value = costOfInvestHalfTimer;
