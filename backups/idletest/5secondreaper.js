@@ -1,6 +1,7 @@
 import { state } from './main.js';
 import { multiplierState } from './inventory.js';
 if (typeof state.clicks === "undefined") state.clicks = 0;
+import { displayFunction } from './main.js';
 
 let numberOfFiveSecondReaper = 0;
 let costOfFiveSecondreaper = 15;
@@ -17,12 +18,12 @@ function fiveSecondReaper() {
 
         setInterval(() => {
             state.clicks++ * multiplierState.clickMultiplier;
-            document.getElementById("counter").value = Math.round(state.clicks);
+            displayFunction();
         }, 5000);
 
 
         //Code block to simply update input, maybe not forget Math.rounds to avoid decimal points?
-        document.getElementById("counter").value = Math.round(state.clicks);
+        displayFunction();
         numberOfFiveSecondReaper++;
         document.getElementById("countOfFiveSecondReapers").value = numberOfFiveSecondReaper;
         costOfFiveSecondreaper += costOfFiveSecondreaper * 0.5;

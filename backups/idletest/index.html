@@ -11,6 +11,8 @@
     <script type="module" src="5secondreaper.js"></script>
     <script type="module" src="inventory.js"></script>
     <script type="module" src="andreaslefttoe.js"></script>
+    <!-- <script type="module" src="npc.js"></script> -->
+    <script type="module" src="bank.js"></script>
     <link rel="shortcut icon" href="#">
 </head>
 
@@ -27,26 +29,36 @@
         <input type="text" id="counter">
     </div>
 
+    <div class="centerElements">
+        <button type="button" id="mainClick">Click me!</button>
+    </div>
+
     <div>
         <button type="button" id="toggleMusic">Play</button>
         <button type="button" id="muteMusic">Mute</button>
         <div>
-            <input id="volumeSlider" type="range" min="0" max="100" value="50"></input>
+            <input id="volumeSlider" type="range" min="0" max="100" value="50">
         </div>
     </div>
 
+    <div id="npc" class="npcPosition">
+        <button type="button" id="theBankKeeper">The Bank Keeper</button>
+        <button type="button" id="input">Input</button>
+        <button type="button" id="output">Output</button>
+        <button type="button" id="invest">Invest Clicks</button>
+        <button type="button" id="halfTheInvestTimer">Half The Invest Timer</button>
 
-    <div class="centerElements">
-        <button type="button" id="mainClick">Click me!</button>
+        <div id="theBankKeeperInputs">
+            <input type="text" id="costOfHalfTheInvestTimer" class="sizeOfInputs2" readonly>
+        </div>
     </div>
+
     <div class="containerButtons">
         <div class="buttonPosition">
             <button type="button" id="autoClicker">AutoClicker</button>
             <button type="button" id="fiveSecondReaper">The Five Second Reaper</button>
             <button type="button" id="andreasLeftToe">Andreas' Left Toe</button>
             <button type="button" id="upgradeForAutoClicker">Upgrade the AutoClicker!</button>
-            <button type="button" id="testingButton">Solely For Testing</button>
-
         </div>
     </div>
 

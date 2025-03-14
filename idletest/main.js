@@ -2,38 +2,39 @@ export let state = {
     clicks: 0
 };
 
-//Eventual function so everything is cleaned up, solely for displaying the new value of the counter and maybe more.
+let backgroundMusic = new Audio("audio/music/backgroundmusic.mp3");
+
+const mainDOMElements = {
+    counter: document.getElementById("counter"),
+    mainClick: document.getElementById("mainClick"),
+    toggleMusic: document.getElementById("toggleMusic"),
+    muteMusic: document.getElementById("muteMusic"),
+    volumeSlider: document.getElementById("volumeSlider")
+};
+
 export function displayFunction() {
-    document.getElementById("counter").value = Math.round(state.clicks);
+    mainDOMElements.counter.value = Math.round(state.clicks);
 }
-
-let toggleTheMusic = new Audio("audio/music/ramranch.wav");
-
-
-document.getElementById("mainClick").addEventListener("click", onClick, false);
-document.getElementById("toggleMusic").addEventListener("click", toggleMusic, false);
-document.getElementById("muteMusic").addEventListener("click", muteMusic, false);
-document.getElementById("volumeSlider").addEventListener("input", volumeSlider, false);
 
 function onClick() {
     document.getElementById("counter").value;
     state.clicks++;
     document.getElementById("counter").value = Math.round(state.clicks);
-
-    console.log(state.clicks);
 }
 
 function toggleMusic() {
-    toggleTheMusic.play();
+    backgroundMusic.play();
 }
 
 function muteMusic() {
-    toggleTheMusic.pause();
+    backgroundMusic.pause();
 }
 
 function volumeSlider() {
-    let theVolumeSlider = document.getElementById("volumeSlider").value;
-    toggleTheMusic.volume = theVolumeSlider / 100;
+    backgroundMusic.volume = mainDOMElements.volumeSlider.value / 100;
 }
 
-
+mainDOMElements.mainClick.addEventListener("click", onClick);
+mainDOMElements.toggleMusic.addEventListener("click", toggleMusic);
+mainDOMElements.muteMusic.addEventListener("click", muteMusic);
+mainDOMElements.volumeSlider.addEventListener("input", volumeSlider);

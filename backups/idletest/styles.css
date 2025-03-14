@@ -83,3 +83,13 @@ body {
 }
 
 .inputUpgrades {}
+
+
+.npcPosition {
+    display: grid;
+    justify-content: left;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.theBankKeeperInputs {}
