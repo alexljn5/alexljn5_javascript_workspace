@@ -11,12 +11,14 @@
     <script type="module" src="5secondreaper.js"></script>
     <script type="module" src="inventory.js"></script>
     <script type="module" src="andreaslefttoe.js"></script>
-    <!-- <script type="module" src="npc.js"></script> -->
+    <script type="module" src="npc.js"></script>
     <script type="module" src="bank.js"></script>
     <link rel="shortcut icon" href="#">
 </head>
 
 <body>
+    <h1>Idle Test Alpha 1.0.0</h1>
+
     <div class="positionIcons">
         <!--<img src="img/icons/fivesecondreaper.png" alt="The Five Second Reaper"> -->
     </div>
@@ -40,17 +42,36 @@
             <input id="volumeSlider" type="range" min="0" max="100" value="50">
         </div>
     </div>
-
-    <div id="npc" class="npcPosition">
+    <div>
         <button type="button" id="theBankKeeper">The Bank Keeper</button>
-        <button type="button" id="input">Input</button>
-        <button type="button" id="output">Output</button>
-        <button type="button" id="invest">Invest Clicks</button>
-        <button type="button" id="halfTheInvestTimer">Half The Invest Timer</button>
+    </div>
+
+
+    <div id="bank" class="bankPosition">
+
+        <div id="theBankKeeperText">
+            <input type="text">
+        </div>
+        <div id="theBankKeeperLoreButtons">
+            <button type="button" id="whoAreYou">Who are you?</button>
+            <button type="button" id="uhmWat">Uuuuh...?</button>
+            <button type="button" id="okay">Okay.</button>
+        </div>
+
+        <div class="bankButtonPosition">
+            <button type="button" id="input">Input</button>
+            <button type="button" id="output">Output</button>
+            <button type="button" id="invest">Invest Clicks</button>
+            <button type="button" id="halfTheInvestTimer">Half The Invest Timer</button>
+        </div>
+
 
         <div id="theBankKeeperInputs">
             <input type="text" id="costOfHalfTheInvestTimer" class="sizeOfInputs2" readonly>
         </div>
+    </div>
+
+
     </div>
 
     <div class="containerButtons">
@@ -87,7 +108,6 @@
         <input type="text" id="costofAndreasLeftToe" class="sizeOfInputs" readonly>
         <input type="text" id="costOfAutoClickerUpgrades" class="sizeOfInputs" readonly>
     </div>
-
 </body>
 
 </html>

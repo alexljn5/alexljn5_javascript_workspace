@@ -2,6 +2,10 @@ import { state, displayFunction } from './main.js';
 import { multiplierState } from './inventory.js';
 if (typeof state.clicks === "undefined") state.clicks = 0;
 
+export let investTimerState = {
+    investTimer: 3600000 //One hour
+};
+
 let numberOfAutoClickers = 0;
 let numberOfUpgradeAutoClickers = 0;
 let costOfUpgradingAutoClickers = 15;

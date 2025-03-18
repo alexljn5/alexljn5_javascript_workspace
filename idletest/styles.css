@@ -85,11 +85,23 @@ body {
 .inputUpgrades {}
 
 
-.npcPosition {
-    display: grid;
+.bankPosition {
+    display: none;
     justify-content: left;
     margin-bottom: 10px;
     margin-left: 10px;
 }
 
 .theBankKeeperInputs {}
+
+
+h1 {
+    font-size: 20px;
+}
+
+.bankButtonPosition {
+    display: grid;
+    justify-content: left;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}

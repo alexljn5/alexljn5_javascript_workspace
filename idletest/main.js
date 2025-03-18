@@ -9,13 +9,15 @@ const mainDOMElements = {
     mainClick: document.getElementById("mainClick"),
     toggleMusic: document.getElementById("toggleMusic"),
     muteMusic: document.getElementById("muteMusic"),
-    volumeSlider: document.getElementById("volumeSlider")
+    volumeSlider: document.getElementById("volumeSlider"),
+    theBankKeeperBox: document.getElementById("theBankKeeper"),
 };
 
 mainDOMElements.mainClick.addEventListener("click", onClick);
 mainDOMElements.toggleMusic.addEventListener("click", toggleMusic);
 mainDOMElements.muteMusic.addEventListener("click", muteMusic);
 mainDOMElements.volumeSlider.addEventListener("input", volumeSlider);
+mainDOMElements.theBankKeeperBox.addEventListener("click", theBankKeeperBoxInput);
 
 export function displayFunction() {
     mainDOMElements.counter.value = Math.round(state.clicks);
@@ -39,3 +41,12 @@ function volumeSlider() {
     backgroundMusic.volume = mainDOMElements.volumeSlider.value / 100;
 }
 
+function theBankKeeperBoxInput() {
+    let showAndHideBankStuff = document.getElementById("bank");
+    if (showAndHideBankStuff.style.display === "grid") {
+        showAndHideBankStuff.style.display = "none";
+    } else {
+        showAndHideBankStuff.style.display = "grid";
+    }
+
+}
