@@ -14,10 +14,12 @@ let inventory = [];
 let costOfInvestHalfTimer = 10000;
 let trackUpgradesHalfTimer = 0;
 
-/*
-let giftFromTheGodsItem = "giftfromthegods";
-let doubleTroubleItem = "doubletrouble";
-*/
+
+const giftFromTheGodsItem = "giftFromtTheGodsItem";
+const doubleTroubleItem = "doubleTroubleItem";
+const doubleTheClicksItem = "doubleTheClicksItem";
+const halfTheInvestTimerItem = "halfTheInvestTimerItem";
+
 
 //Somehow pushing functions into the Array instead of a given string value makes it so it works when adding multiple buttons to upgrade stuff, wat.
 document.getElementById("giftfromthegods").addEventListener("click", giftFromTheGods, false);

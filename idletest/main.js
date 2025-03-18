@@ -12,6 +12,11 @@ const mainDOMElements = {
     volumeSlider: document.getElementById("volumeSlider")
 };
 
+mainDOMElements.mainClick.addEventListener("click", onClick);
+mainDOMElements.toggleMusic.addEventListener("click", toggleMusic);
+mainDOMElements.muteMusic.addEventListener("click", muteMusic);
+mainDOMElements.volumeSlider.addEventListener("input", volumeSlider);
+
 export function displayFunction() {
     mainDOMElements.counter.value = Math.round(state.clicks);
 }
@@ -34,7 +39,3 @@ function volumeSlider() {
     backgroundMusic.volume = mainDOMElements.volumeSlider.value / 100;
 }
 
-mainDOMElements.mainClick.addEventListener("click", onClick);
-mainDOMElements.toggleMusic.addEventListener("click", toggleMusic);
-mainDOMElements.muteMusic.addEventListener("click", muteMusic);
-mainDOMElements.volumeSlider.addEventListener("input", volumeSlider);

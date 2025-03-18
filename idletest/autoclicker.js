@@ -1,7 +1,6 @@
-import { state } from './main.js';
+import { state, displayFunction } from './main.js';
 import { multiplierState } from './inventory.js';
 if (typeof state.clicks === "undefined") state.clicks = 0;
-import { displayFunction } from './main.js';
 
 let numberOfAutoClickers = 0;
 let numberOfUpgradeAutoClickers = 0;
@@ -10,33 +9,40 @@ let upgradeAble = false;
 let costOfAutoClicker = 5;
 let clickMultiplier = 1;
 
-document.getElementById("autoClicker").addEventListener("click", autoClicker, false);
-document.getElementById("upgradeForAutoClicker").addEventListener("click", upgradeAutoClicker, false);
+const domElements = {
+    autoClicker: document.getElementById("autoClicker"),
+    upgradeForAutoClicker: document.getElementById("upgradeForAutoClicker"),
+    costOfAutoClicker: document.getElementById("costOfAutoClicker"),
+    costOfAutoClickerUpgrades: document.getElementById("costOfAutoClickerUpgrades"),
+    countOfAutoClickers: document.getElementById("countOfAutoClickers"),
+    countOfAutoClickersUpgrades: document.getElementById("countOfAutoClickersUpgrades"),
+    counter: document.getElementById("counter")
+};
 
+domElements.autoClicker.addEventListener("click", autoClicker);
+domElements.upgradeForAutoClicker.addEventListener("click", upgradeAutoClicker);
 
-
-document.getElementById("costOfAutoClicker").value = costOfAutoClicker;
-document.getElementById("costOfAutoClickerUpgrades").value = costOfUpgradingAutoClickers;
-document.getElementById("counter").value = Math.round(state.clicks);
+domElements.costOfAutoClicker.value = costOfAutoClicker;
+domElements.costOfAutoClickerUpgrades.value = costOfUpgradingAutoClickers;
+domElements.counter.value = Math.round(state.clicks);
 
 function autoClicker() {
     if (costOfAutoClicker <= state.clicks) {
         upgradeAble = true;
         state.clicks -= costOfAutoClicker;
-        //Simple timer to give you clicks based in MS. Can change this around to have fun.
         setInterval(() => {
             state.clicks += clickMultiplier * multiplierState.clickMultiplier;
             displayFunction();
             console.log(state.clicks);
-        }, 10000); //For future me, values need to be in milliseconds
+        }, 10000);
 
         displayFunction();
 
         numberOfAutoClickers++;
-        document.getElementById("countOfAutoClickers").value = numberOfAutoClickers;
+        domElements.countOfAutoClickers.value = numberOfAutoClickers;
         costOfAutoClicker = costOfAutoClicker + costOfAutoClicker * 0.5;
 
-        document.getElementById("costOfAutoClicker").value = Math.round(costOfAutoClicker);
+        domElements.costOfAutoClicker.value = Math.round(costOfAutoClicker);
     } else {
         upgradeAble = false;
     }
@@ -48,10 +54,10 @@ function upgradeAutoClicker() {
         upgradeAble = true;
         numberOfUpgradeAutoClickers++;
         clickMultiplier = numberOfUpgradeAutoClickers + 1;
-        document.getElementById("countOfAutoClickersUpgrades").value = Math.round(numberOfUpgradeAutoClickers);
-        state.clicks = state.clicks - Math.round(costOfUpgradingAutoClickers); // display
+        domElements.countOfAutoClickersUpgrades.value = Math.round(numberOfUpgradeAutoClickers);
+        state.clicks -= Math.round(costOfUpgradingAutoClickers);
         costOfUpgradingAutoClickers += Math.log(costOfUpgradingAutoClickers + 1);
-        document.getElementById("costOfAutoClickerUpgrades").value = Math.round(costOfUpgradingAutoClickers);
+        domElements.costOfAutoClickerUpgrades.value = Math.round(costOfUpgradingAutoClickers);
 
         displayFunction();
     } else {

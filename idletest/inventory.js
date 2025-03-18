@@ -1,4 +1,4 @@
-import { state } from './main.js';
+import { state, displayFunction } from './main.js';
 import { investTimerState } from './bank.js';
 if (typeof state.clicks === "undefined") state.clicks = 0;
 
@@ -6,37 +6,41 @@ export let multiplierState = {
     clickMultiplier: 2
 };
 
-import { displayFunction } from './main.js';
-
-
 //I honestly barely knows how this works.
 let inventory = [];
+let costOfGiftFromTheGods = 5;
+let costOfDoubleTrouble = 10;
+let costOfDoubleClickProduction = 4200;
 let costOfInvestHalfTimer = 10000;
 let trackUpgradesHalfTimer = 0;
 
-/*
-let giftFromTheGodsItem = "giftfromthegods";
-let doubleTroubleItem = "doubletrouble";
-*/
+//Time to see if pushing strings works instead
+const giftFromTheGodsItem = "giftFromTheGodsItem";
+const doubleTroubleItem = "doubleTroubleItem";
+const doubleTheClicksItem = "doubleTheClicksItem";
+const halfTheInvestTimerItem = "halfTheInvestTimerItem";
 
 //Somehow pushing functions into the Array instead of a given string value makes it so it works when adding multiple buttons to upgrade stuff, wat.
-document.getElementById("giftfromthegods").addEventListener("click", giftFromTheGods, false);
-document.getElementById("doubletrouble").addEventListener("click", doubleTrouble, false);
-document.getElementById("doubletheclicks").addEventListener("click", doubleClickProduction, false);
-document.getElementById("halfTheInvestTimer").addEventListener("click", halfTheInvestTimer, false);
+const domElements = {
+    giftFromTheGods: document.getElementById("giftfromthegods"),
+    doubleTrouble: document.getElementById("doubletrouble"),
+    doubleClickProduction: document.getElementById("doubletheclicks"),
+    halfTheInvestTimer: document.getElementById("halfTheInvestTimer"),
+    costOfHalfTheInvestTimer: document.getElementById("costOfHalfTheInvestTimer")
+};
+
+domElements.giftFromTheGods.addEventListener("click", giftFromTheGods);
+domElements.doubleTrouble.addEventListener("click", doubleTrouble);
+domElements.doubleClickProduction.addEventListener("click", doubleClickProduction);
+domElements.halfTheInvestTimer.addEventListener("click", halfTheInvestTimer);
 
 loopArray();
 
 function giftFromTheGods() {
-    let costOfGiftFromTheGods = 5;
-
-    if (costOfGiftFromTheGods <= state.clicks && !inventory.includes(giftFromTheGods)) {
-        inventory.push(giftFromTheGods);
-        //state.clicks = state.clicks + 500; pure for debugging, will just give myself like 1million clicks lol
+    if (costOfGiftFromTheGods <= state.clicks && !inventory.includes(giftFromTheGodsItem)) {
+        inventory.push(giftFromTheGodsItem);
         state.clicks = state.clicks + 100000000;
-        document.getElementById("giftfromthegods").disabled = true;
-
-
+        domElements.giftFromTheGods.disabled = true;
         displayFunction();
     } else {
         alert("not enough clicks");
@@ -44,23 +48,21 @@ function giftFromTheGods() {
 }
 
 function doubleTrouble() {
-    if (state.clicks >= 10 && !inventory.includes(doubleTrouble)) {
-        inventory.push(doubleTrouble);
+    if (state.clicks >= costOfDoubleTrouble && !inventory.includes(doubleTroubleItem)) {
+        inventory.push(doubleTroubleItem);
         state.clicks = state.clicks * 2;
-        document.getElementById("doubletrouble").disabled = true; //Just disables button
-
+        domElements.doubleTrouble.disabled = true;
         displayFunction();
     } else {
         alert("not enough clicks");
     }
 }
 
-function doubleClickProduction() { //Code that will eventually give you a x2 multiplier on certain towers
-    if (state.clicks >= 4200 && !inventory.includes(doubleClickProduction)) {
-        inventory.push(doubleClickProduction);
+function doubleClickProduction() {
+    if (state.clicks >= costOfDoubleClickProduction && !inventory.includes(doubleTheClicksItem)) {
+        inventory.push(doubleTheClicksItem);
         multiplierState.clickMultiplier = 2;
-        document.getElementById("doubletheclicks").disabled = true;
-
+        domElements.doubleClickProduction.disabled = true;
         displayFunction();
     } else {
         alert("not enough clicks.");
@@ -70,18 +72,18 @@ function doubleClickProduction() { //Code that will eventually give you a x2 mul
 //WORKS
 function halfTheInvestTimer() {
     const maximumUpgradesOfHalfTimer = 5;
-    if (state.clicks >= costOfInvestHalfTimer && !inventory.includes(halfTheInvestTimer)) {
+    if (state.clicks >= costOfInvestHalfTimer && !inventory.includes(halfTheInvestTimerItem)) {
         if (trackUpgradesHalfTimer >= maximumUpgradesOfHalfTimer) {
-            inventory.push(halfTheInvestTimer);
-            document.getElementById("halfTheInvestTimer").disabled = true;
+            inventory.push(halfTheInvestTimerItem);
+            domElements.halfTheInvestTimer.disabled = true;
         } else {
             trackUpgradesHalfTimer++
             investTimerState.investTimer = investTimerState.investTimer / 2;
             state.clicks = state.clicks - costOfInvestHalfTimer;
             displayFunction();
-            //Gives the initial cost and updates the value correctly with initial cost and then a log unit.
             costOfInvestHalfTimer = Math.round(costOfInvestHalfTimer + (costOfInvestHalfTimer + Math.log(state.clicks * 100)));
-            document.getElementById("costOfHalfTheInvestTimer").value = costOfInvestHalfTimer;
+            domElements.costOfHalfTheInvestTimer.value = costOfInvestHalfTimer;
+            alert("not enough clicks.");
         }
         console.log(costOfInvestHalfTimer);
     }
@@ -114,7 +116,4 @@ function loopArray() {
     }, 1000); // 1 second is a good pace
 }
 
-
 */
-
-

@@ -1,15 +1,20 @@
-import { state } from './main.js';
+import { state, displayFunction } from './main.js';
 import { multiplierState } from './inventory.js';
 if (typeof state.clicks === "undefined") state.clicks = 0;
-import { displayFunction } from './main.js';
 
 let numberOfFiveSecondReaper = 0;
 let costOfFiveSecondreaper = 15;
 
-document.getElementById("fiveSecondReaper").addEventListener("click", fiveSecondReaper, false);
+const domElements = {
+    fiveSecondReaper: document.getElementById("fiveSecondReaper"),
+    countOfFiveSecondReapers: document.getElementById("countOfFiveSecondReapers"),
+    costOfFiveSecondReapers: document.getElementById("costOfFiveSecondReapers")
+};
 
-document.getElementById("countOfFiveSecondReapers").value = numberOfFiveSecondReaper;
-document.getElementById("costOfFiveSecondReapers").value = costOfFiveSecondreaper;
+domElements.fiveSecondReaper.addEventListener("click", fiveSecondReaper);
+
+domElements.countOfFiveSecondReapers.value = numberOfFiveSecondReaper;
+domElements.costOfFiveSecondReapers.value = costOfFiveSecondreaper;
 
 function fiveSecondReaper() {
     //Simple timer to give you clicks based in MS. Can change this around to have fun.
@@ -17,16 +22,14 @@ function fiveSecondReaper() {
         state.clicks -= costOfFiveSecondreaper;
 
         setInterval(() => {
-            state.clicks++ * multiplierState.clickMultiplier;
+            state.clicks += multiplierState.clickMultiplier;
             displayFunction();
         }, 5000);
 
-
-        //Code block to simply update input, maybe not forget Math.rounds to avoid decimal points?
         displayFunction();
         numberOfFiveSecondReaper++;
-        document.getElementById("countOfFiveSecondReapers").value = numberOfFiveSecondReaper;
+        domElements.countOfFiveSecondReapers.value = numberOfFiveSecondReaper;
         costOfFiveSecondreaper += costOfFiveSecondreaper * 0.5;
-        document.getElementById("costOfFiveSecondReapers").value = Math.round(costOfFiveSecondreaper);
+        domElements.costOfFiveSecondReapers.value = Math.round(costOfFiveSecondreaper);
     }
 }
